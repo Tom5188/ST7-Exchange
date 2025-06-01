@@ -1,0 +1,53 @@
+{
+  "name": "pktharindu/nova-permissions",
+  "description": "Laravel Nova Grouped Permissions (ACL)",
+  "keywords": [
+    "laravel",
+    "nova",
+    "tool",
+    "acl",
+    "roles",
+    "permissions",
+    "access control",
+    "gates",
+    "policies",
+    "authentication",
+    "authorization"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "P. K. Tharindu",
+      "email": "pktharindu@outlook.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.1.0|^8.0"
+  },
+  "require-dev": {
+    "laravel/nova": "^4.0|^5.0"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://nova.laravel.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Pktharindu\\NovaPermissions\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Pktharindu\\NovaPermissions\\ToolServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

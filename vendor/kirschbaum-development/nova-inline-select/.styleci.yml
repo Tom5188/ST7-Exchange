@@ -1,0 +1,22 @@
+preset: laravel
+
+enabled:
+    - combine_consecutive_unsets
+    - concat_with_spaces
+    - explicit_string_variable
+    - length_ordered_imports
+    - method_chaining_indentation
+    - no_empty_comment
+    - ordered_class_elements
+    - phpdoc_add_missing_param_annotation
+    - phpdoc_no_empty_return
+    - phpdoc_order
+    - phpdoc_separation
+    - property_separation
+    - ternary_to_null_coalescing
+
+disabled:
+    - alpha_ordered_imports
+    - concat_without_spaces
+    - laravel_phpdoc_order
+    - laravel_phpdoc_separation

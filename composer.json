@@ -1,0 +1,124 @@
+{
+    "name": "laravel/laravel",
+    "type": "project",
+    "description": "The skeleton application for the Laravel framework.",
+    "keywords": [
+        "laravel",
+        "framework"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "alphasnow/aliyun-oss-laravel": "^4.7",
+        "bacon/bacon-qr-code": "^3.0",
+        "badinansoft/nova-language-switch": "^1.2",
+        "bavix/laravel-wallet": "^10.0",
+        "bensampo/laravel-enum": "^6.4",
+        "coderello/laravel-nova-lang": "^2.0",
+        "coderello/laravel-passport-social-grant": "^3.1",
+        "davidpiesse/nova-toggle": "^4.0",
+        "doctrine/dbal": "^3.6.4",
+        "elasticsearch/elasticsearch": "~7.0",
+        "eminiarts/nova-tabs": "^2.2",
+        "guzzlehttp/guzzle": "^7.2",
+        "kirschbaum-development/nova-inline-select": "^2.0",
+        "kra8/laravel-snowflake": "^2.2",
+        "laminas/laminas-diactoros": "^3.0",
+        "laravel/framework": "^10.15",
+        "laravel/horizon": "^5.18",
+        "laravel/passport": "^11.8",
+        "laravel/sanctum": "^3.2",
+        "laravel/socialite": "^5.8",
+        "laravel/tinker": "^2.8",
+        "leonis/easysms-notification-channel": "^2.0",
+        "maatwebsite/excel": "~3.1.48",
+        "maatwebsite/laravel-nova-excel": "^1.3",
+        "mews/captcha": "^3.3",
+        "mrlaozhou/laravel-extend": "^1.3",
+        "norman-huth/nova-radio-field": "^1.1",
+        "optimistdigital/nova-multiselect-field": "^4.5",
+        "outl1ne/nova-settings": "^5.2",
+        "overtrue/easy-sms": "^2.4",
+        "overtrue/laravel-pinyin": "~4.0",
+        "owenmelbz/nova-radio-field": "^1.0",
+        "phpmailer/phpmailer": "^6.7",
+        "pktharindu/nova-permissions": "^3.1",
+        "pragmarx/google2fa": "^8.0",
+        "predis/predis": "^1.1",
+        "propaganistas/laravel-phone": "^5.0",
+        "socialiteproviders/weixin": "^4.1",
+        "socialiteproviders/weixin-web": "^4.1",
+        "spatie/laravel-query-builder": "^5.2",
+        "torann/geoip": "^3.0",
+        "vinkla/hashids": "^11.0",
+        "workerman/gateway-worker": "^3.0"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.9.1",
+        "laravel/pint": "^1.0",
+        "laravel/sail": "^1.18",
+        "mockery/mockery": "^1.4.4",
+        "nunomaduro/collision": "^7.0",
+        "overtrue/laravel-query-logger": "^3.1",
+        "phpunit/phpunit": "^10.1",
+        "spatie/laravel-ignition": "^2.0",
+        "laravel/nova": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        },
+        "files": [
+            "bootstrap/helpers.php",
+            "bootstrap/ext.php",
+            "common/functions.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ],
+        "post-nova-update-cmd": [
+            "@php artisan nova:publish"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "repositories": {
+        "nova": {
+            "type": "path",
+            "url": "./nova"
+        }
+    }
+}

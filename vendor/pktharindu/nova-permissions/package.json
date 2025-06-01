@@ -1,0 +1,21 @@
+{
+    "private": true,
+    "scripts": {
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "production": "mix --production"
+    },
+    "devDependencies": {
+        "@inertiajs/inertia": "^0.11.0",
+        "@vue/babel-plugin-jsx": "^1.1.1",
+        "@vue/compiler-sfc": "^3.2.22",
+        "form-backend-validation": "^2.4.0",
+        "laravel-mix": "^6.0.41",
+        "sass": "^1.42.1",
+        "sass-loader": "^12.1.0",
+        "vue-loader": "^16.2.0",
+        "vuex": "^4.0.2"
+    }
+}

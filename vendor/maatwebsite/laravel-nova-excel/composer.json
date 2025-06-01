@@ -1,0 +1,37 @@
+{
+  "name": "maatwebsite/laravel-nova-excel",
+  "description": "Supercharged Excel exports for Laravel Nova Resources",
+  "license": "MIT",
+  "keywords": [
+    "laravel",
+    "phpspreadsheet",
+    "phpexcel",
+    "nova",
+    "laravel-nova",
+    "actions"
+  ],
+  "authors": [
+    {
+      "name": "Patrick Brouwers",
+      "email": "patrick@maatwebsite.nl"
+    }
+  ],
+  "require": {
+    "php": "^7.1||^8.0",
+    "laravel/nova": "^4.0|^5.0",
+    "laravie/serialize-queries": "^1.0|^2.0|^3.0",
+    "maatwebsite/excel": "^3.1.57"
+  },
+  "autoload": {
+    "psr-4": {
+      "Maatwebsite\\LaravelNovaExcel\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Maatwebsite\\LaravelNovaExcel\\LaravelNovaExcelServiceProvider"
+      ]
+    }
+  }
+}

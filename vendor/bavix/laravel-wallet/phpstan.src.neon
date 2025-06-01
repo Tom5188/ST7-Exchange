@@ -1,0 +1,38 @@
+includes:
+	- phpstan.common.neon
+	- phpstan.src.baseline.neon
+
+parameters:
+    level: 9
+    fileExtensions:
+        - php
+    ergebnis:
+        noParameterWithNullableTypeDeclaration:
+            enabled: false
+        noNullableReturnTypeDeclaration:
+            enabled: false
+        noParameterWithNullDefaultValue:
+            enabled: false
+        final:
+            allowAbstractClasses: true
+            classesNotRequiredToBeAbstractOrFinal:
+                - Bavix\Wallet\Models\Wallet
+                - Bavix\Wallet\Models\Transfer
+                - Bavix\Wallet\Models\Transaction
+        noExtends:
+            classesAllowedToBeExtended:
+                # laravel
+                - Illuminate\Support\ServiceProvider
+                - Illuminate\Database\Eloquent\Model
+
+                # php exceptions
+                - LogicException
+                - RuntimeException
+                - UnderflowException
+                - UnexpectedValueException
+                - InvalidArgumentException
+        noParameterWithContainerTypeDeclaration:
+            interfacesImplementedByContainers:
+                - Psr\Container\ContainerInterface
+    paths:
+        - src/

@@ -1,0 +1,24 @@
+on: push
+name: CI
+
+jobs:
+  phpunit:
+    runs-on: ubuntu-latest
+    container:
+      image: kirschbaumdevelopment/laravel-test-runner:8.0
+
+    steps:
+    - uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
+
+    - name: Configure composer for Nova
+      run: |
+        composer config "http-basic.nova.laravel.com" "${{ secrets.NOVA_USERNAME }}" "${{ secrets.NOVA_PASSWORD }}"
+
+    - name: Install composer dependencies
+      run: |
+        composer install --prefer-dist --no-interaction --no-scripts
+
+    - name: Run Testsuite
+      run: vendor/bin/phpunit tests/

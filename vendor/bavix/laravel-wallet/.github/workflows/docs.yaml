@@ -1,0 +1,12 @@
+name: build docs
+
+on:
+  pull_request:
+    branches: [ 10.x ]
+
+jobs:
+  build_pages:
+    permissions:
+      contents: write
+    uses: bavix/.github/.github/workflows/compile-assets.yml@0.1.9
+    secrets: inherit

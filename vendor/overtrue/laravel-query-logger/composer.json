@@ -1,0 +1,58 @@
+{
+    "name": "overtrue/laravel-query-logger",
+    "description": "A dev tool to log all queries for laravel application.",
+    "type": "library",
+    "require": {
+        "laravel/framework": "^9.0|^10.0|^11.0|^12.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.5",
+        "brainmaestro/composer-git-hooks": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Overtrue\\LaravelQueryLogger\\": "src"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "overtrue",
+            "email": "anzhengchao@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Overtrue\\LaravelQueryLogger\\ServiceProvider"
+            ]
+        },
+        "hooks": {
+            "pre-commit": [
+                "composer check-style"
+            ],
+            "pre-push": [
+                "composer check-style"
+            ]
+        }
+    },
+    "scripts": {
+        "post-update-cmd": [
+            "cghooks update"
+        ],
+        "post-merge": "composer install",
+        "post-install-cmd": [
+            "cghooks add --ignore-lock",
+            "cghooks update"
+        ],
+        "cghooks": "vendor/bin/cghooks",
+        "check-style": "vendor/bin/pint --test",
+        "fix-style": "vendor/bin/pint",
+        "test": "vendor/bin/phpunit --colors=always"
+    },
+    "scripts-descriptions": {
+        "test": "Run all tests.",
+        "check-style": "Run style checks (only dry run - no fixing!).",
+        "fix-style": "Run style checks and fix violations."
+    }
+}
