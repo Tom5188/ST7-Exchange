@@ -23,6 +23,9 @@ putenv,pcntl_signal,pcntl_signal_dispatch,pcntl_fork,pcntl_wait,pcntl_alarm
 fileinfo,opcache,memcached,redis,imagemagick,imap,exif,intl,event
 ### 目录映射
 php artisan storage:link
+### 运行权限
+chmod -R 775 storage bootstrap/cache
+chown -R www:www *
 ### 安装composer
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 php composer-setup.php --install-dir=/usr/bin --filename=composer
