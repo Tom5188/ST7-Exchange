@@ -117,7 +117,7 @@ After=network.target
 [Service]
 Type=simple
 WorkingDirectory=/www/wwwroot/site.com
-ExecStart=php /www/wwwroot/site.com/artisan websocket:client restart
+ExecStart=/www/server/php/82/bin/php /www/wwwroot/site.com/artisan websocket:client restart
 Restart=always
 User=root
 Group=root
@@ -132,7 +132,7 @@ After=network.target
 [Service]
 Type=simple
 WorkingDirectory=/www/wwwroot/site.com
-ExecStart=php /www/wwwroot/site.com/public/vendor/webmsgsender/start.php restart
+ExecStart=/www/server/php/73/bin/php /www/wwwroot/site.com/public/vendor/webmsgsender/start.php restart
 Restart=always
 User=root
 Group=root
@@ -147,7 +147,7 @@ After=network.target
 [Service]
 Type=simple
 WorkingDirectory=/www/wwwroot/site.com
-ExecStart=php /www/wwwroot/site.com/artisan queue:work --timeout=60
+ExecStart=/www/server/php/82/bin/php /www/wwwroot/site.com/artisan queue:work --timeout=60
 Restart=always
 User=root
 Group=root
@@ -162,7 +162,7 @@ After=network.target
 [Service]
 Type=simple
 WorkingDirectory=/www/wwwroot/site.com
-ExecStart=php /www/wwwroot/site.com/artisan horizon
+ExecStart=/www/server/php/82/bin/php /www/wwwroot/site.com/artisan horizon
 Restart=always
 User=root
 Group=root
@@ -177,7 +177,7 @@ After=network.target
 [Service]
 Type=simple
 WorkingDirectory=/www/wwwroot/site.com
-ExecStart=php /www/wwwroot/site.com/artisan robot 4
+ExecStart=/www/server/php/82/bin/php /www/wwwroot/site.com/artisan robot 4
 Restart=always
 User=root
 Group=root
