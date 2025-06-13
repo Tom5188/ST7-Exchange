@@ -26,7 +26,7 @@ class Currency extends BaseModel
         });
     }
 
-    public function wallets(): HasMany
+    public function wallets()
     {
         return $this->hasMany(UsersWallet::class, 'currency');
     }
