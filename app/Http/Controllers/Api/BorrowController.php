@@ -94,7 +94,7 @@ class BorrowController extends Controller
                 'sub_time' => '',
                 'borrow_desc' => '',
                 'day_profit' => $borrow['borrow_lixi'],
-                'sum_profit' => bcmul($borrow['lock_dividend_days'],bcmul(bcdiv($borrow['borrow_lixi'],100),$amount)),
+                'sum_profit' => bcmul($borrow['lock_dividend_days'],bcmul($borrow['borrow_lixi'], $amount)),
                 'lock_dividend_days' => $borrow['lock_dividend_days'],
                 'status' => 1
             ];
