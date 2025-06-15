@@ -9,6 +9,12 @@ class BorrowOrder extends BaseModel
 {
     protected $table = "borrow_order";
     use HasFactory;
+    protected $fillable = [
+        'is_return',
+        'status',
+        'updated_at',
+        // 加上你需要批量赋值的字段
+    ];
 
     protected $appends = ['account', 'overdue', 'expire'];
 
