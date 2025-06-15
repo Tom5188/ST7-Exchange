@@ -37,6 +37,7 @@ class Kernel extends ConsoleKernel
         Commands\ProjectOrder::class,
         Commands\FollowCommand::class,
         Commands\CleanMarketKine::class,
+        Commands\BorrowApply::class,
     ];
 
     /**
@@ -47,11 +48,13 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('follow')->everyMinute()->withoutOverlapping(); //处理跟随者 跟单逻辑
-        $schedule->command('remove_queue')->hourly()->withoutOverlapping(); //移除积压
-        $schedule->command('clean:market-kine')->hourly()->withoutOverlapping(); //清理 market_kine 表
+        $schedule->command('follow')->everyMinute()->withoutOverlapping()->appendOutputTo('./storage/logs/follow.log');; //处理跟随者 跟单逻辑
+        $schedule->command('remove_queue')->hourly()->withoutOverlapping()->appendOutputTo('./storage/logs/remove_queue.log');; //移除积压
+        $schedule->command('clean:market-kine')->hourly()->withoutOverlapping()->appendOutputTo('./storage/logs/market_kine.log');; //清理 market_kine 表
+        $schedule->command('call:alimarket')->everyMinute()->withoutOverlapping()->appendOutputTo('./storage/logs/alimarket.log');; //获取期货数据
+        $schedule->command('borrow:apply')->everyMinute()->withoutOverlapping()->appendOutputTo('./storage/logs/borrowed.log'); //强制还款
         $schedule->command('lhdispatch_interest')->dailyAt('00:01')->appendOutputTo('./storage/logs/lhdispatch_interest.log');  // 锁仓派息
-        // $schedule->command('project_interest')->hourly()->appendOutputTo('./storage/logs/project_interest.log');//理财结算
+        $schedule->command('project_interest')->dailyAt('00:01')->appendOutputTo('./storage/logs/project_interest.log');//理财结算
         /**
          * $schedule->command('update_hash_status')->everyMinute()->withoutOverlapping(); //更新哈希值状态
          * $schedule->command('lever:overnight')->dailyAt('00:01')->appendOutputTo('./storage/logs/lever_overnight.log'); //收取隔夜费
