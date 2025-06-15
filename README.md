@@ -107,11 +107,7 @@ sudo systemctl disable elasticsearch
 curl -X GET localhost:9200
 ### 计划任务
 1day:备份网站,数据库,更新时间
-1day:project_interest[php /www/wwwroot/site.com/artisan project_interest]
-30min:clean:market-kine[php /www/wwwroot/site.com/artisan clean:market-kine]
-1min:call:alimarket[php /www/wwwroot/site.com/artisan call:alimarket]
-1min:shell[su -s /bin/sh www -c "php /www/wwwroot/site.com/artisan schedule:run >> /www/wwwroot/site.com/storage/logs/crontab.log 2>&1"]
-或[sudo -u www php /www/wwwroot/site.com/artisan schedule:run]
+1min:shell[php /www/wwwroot/site.com/artisan schedule:run >> /www/wwwroot/site.com/storage/logs/crontab.log 2>&1]
 ### 安装websocket-client
 sudo vi /etc/systemd/system/websocket-client.service
 [Unit]
